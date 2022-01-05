@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package backoffice;
+
+option go_package = "github.com/opencars/schema/backoffice";
+
+message CustomerBlocked {
+  string customer_id = 1;
+}
+
+message CustomerUnblocked {
+  string customer_id = 1;
+}

@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package vehicle;
+
+option go_package = "github.com/opencars/schema/vehicle";
+
+import "proto/vehicle/registration.proto";
+import "proto/vehicle/operation.proto";
+
+message RegistrationRequested {
+  Registration registration = 1;
+}
+
+message OperationRequested {
+  Operation operation = 1;
+}

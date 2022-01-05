@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+/*
+ *  This file contains basic wrappers to implement async event communication.
+ *  When using this package, event emitter implements schema.Producer interface and registers it's entity in async package.
+ */
+
+package proto;
+
+option go_package = "github.com/opencars/schema";
+
+import "google/protobuf/any.proto";
+
+// Event is a part of integrity protocol to implement on each service communicating with existing system.
+//
+// To register a new event in the system, next steps should be performed:
+//      - in corresponding domain submodule (e.g. /async/media), create you entity for CUD events
+//      - register it in content type enum and provide on each.
+//      - use interfaces from schema package to provide guaranteed delivery.
+message Event {
+  string              id      = 1;
+  Source              source  = 2;
+  google.protobuf.Any payload = 3;
+}
+
+// Data change capture event wrapper for any entity in the system.
+message CUD {
+  enum Type {
+    CREATE = 0;
+    UPDATE = 1;
+    DELETE = 2;
+  };
+
+  // Type - type of the CUD event: Create/Update/Delete.
+  Type type  = 1;
+  // Version - entity/object version if source database keeps it.
+  uint64 version = 2;
+
+  // Current - latest full object state as source service represents it to other services.
+  google.protobuf.Any current = 3;
+  // Change  - diff between previous and current state: if field not changed, its value should be nil/omitempty.
+  //           it is a must to provide.
+  google.protobuf.Any change  = 4;
+}
+
+// Source is mandatory struct in event to represent emitting service.
+message Source {
+  string service = 1;
+  string version = 2;
+}
