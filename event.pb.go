@@ -77,7 +77,7 @@ func (CUD_Type) EnumDescriptor() ([]byte, []int) {
 // Event is a part of integrity protocol to implement on each service communicating with existing system.
 //
 // To register a new event in the system, next steps should be performed:
-//      - in corresponding domain submodule (e.g. /async/vehicle), create you entity for CUD events
+//      - in corresponding domain submodule (e.g. /async/media), create you entity for CUD events
 //      - register it in content type enum and provide on each.
 //      - use interfaces from schema package to provide guaranteed delivery.
 type Event struct {

@@ -4,13 +4,22 @@ package vehicle;
 
 option go_package = "github.com/opencars/schema/vehicle";
 
-import "proto/vehicle/registration.proto";
-import "proto/vehicle/operation.proto";
+message RegistrationSearched {
+  string user_id = 1;
 
-message RegistrationRequested {
-  Registration registration = 1;
+  string code = 2;
+  string number = 3;
+  string vin = 4;
+
+  uint32 result_amount = 5;
 }
 
-message OperationRequested {
-  Operation operation = 1;
+message OperationSearched {
+  string user_id = 1;
+
+  string code = 2;
+  string number = 3;
+  string vin = 4;
+
+  uint32 result_amount = 5;
 }

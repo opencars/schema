@@ -4,5 +4,25 @@ package vehicle;
 
 option go_package = "github.com/opencars/schema/vehicle";
 
+import "proto/common/date.proto";
+
 message Registration {
+  string code = 1;
+  string number = 2;
+  string vin = 3;
+
+  string brand = 4;
+  string model = 5;
+  int32 year = 6;
+  int32 capacity = 7;
+  string color = 8;
+  string fuel = 9;
+  string kind = 10;
+  int32 num_seating = 11;
+  int32 own_weight = 12;
+  int32 total_weight = 13;
+
+  common.Date date = 14;
+  common.Date first_reg_date = 15;
+  string category = 16;
 }

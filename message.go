@@ -17,9 +17,7 @@ func (m *Message) Options() *MessageOptions {
 
 func (m *Message) WithOptions(ff ...MessageOption) *Message {
 	if m.options == nil {
-		m.options = &MessageOptions{
-			Headers: make(map[string]string),
-		}
+		m.options = &MessageOptions{}
 	}
 
 	for _, f := range ff {
@@ -30,9 +28,7 @@ func (m *Message) WithOptions(ff ...MessageOption) *Message {
 }
 
 func NewMessage(payload proto.Message, ff ...MessageOption) *Message {
-	options := &MessageOptions{
-		Headers: make(map[string]string),
-	}
+	options := &MessageOptions{}
 
 	for _, f := range ff {
 		options = f(options)

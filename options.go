@@ -1,13 +1,7 @@
 package schema
 
-type HeaderKey string
-
-var (
-	HeaderTraceID HeaderKey = "trace-id"
-)
-
 type MessageOptions struct {
-	Subject   string
+	Subject string
 }
 
 type MessageOption func(*MessageOptions) *MessageOptions

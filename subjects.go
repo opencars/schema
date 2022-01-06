@@ -3,9 +3,9 @@ package schema
 type Subject string
 
 const (
-	RegistrationRequested = "registration.requested"
-	
-	OperationRequested = "registration.requested"
+	RegistrationCustomerActions = "registration.customer.actions"
+
+	OperationCustomerActions = "operation.customer.actions"
 
 	BackofficeCustomerActions = "backoffice.customer.actions"
 )

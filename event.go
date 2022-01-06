@@ -57,8 +57,6 @@ func (e *CUD) Message(ff ...MessageOption) *Message {
 
 // EventMeta contains metadata of event.
 type EventMeta struct {
-	Key     string
-	Topic   string
-	Group   string
+	Subject string
 	Time    time.Time
 }

@@ -4,5 +4,43 @@ package vehicle;
 
 option go_package = "github.com/opencars/schema/vehicle";
 
+import "proto/common/date.proto";
+
+message Department {
+  int32 code = 1;
+  string name = 2;
+}
+
+message Owner {
+  enum Entity {
+    UNKNOWN = 0;
+    INDIVIDUAL = 1;
+    LEGAL = 2;
+  }
+
+  message Territory { int32 code = 1; }
+
+  Entity entity = 1;
+  Territory registration = 2;
+}
+
 message Operation {
+  string number = 1;
+  string vin = 16;
+
+  string brand = 2;
+  string model = 3;
+  int32 year = 4;
+  int32 capacity = 5;
+  string color = 6;
+  string fuel = 7;
+  string kind = 8;
+  string body = 9;
+  string purpose = 10;
+  int32 own_weight = 11;
+  int32 total_weight = 12;
+
+  common.Date date = 13;
+  Department department = 14;
+  Owner owner = 15;
 }
