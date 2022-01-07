@@ -2,8 +2,7 @@ package client
 
 import (
 	"github.com/nats-io/nats.go"
-
-	"gitlab.jmindsystems.com/infinite/backend/schema"
+	"github.com/opencars/schema"
 )
 
 type Client struct {
@@ -28,17 +27,10 @@ func New(addr string) (*Client, error) {
 	}, nil
 }
 
-func (c *Client) Producer(topic schema.Topic) (*Producer, error) {
-	// p, err := sarama.NewSyncProducerFromClient(c.Client)
-	// if err != nil {
-	// 	return nil, err
-	// }
-
-	// return NewProducer(p, topic), nil
-
-	return NewProducer(c.conn, c.js)
+func (c *Client) Producer() (*Producer, error) {
+	return NewProducer(c.conn)
 }
 
 func (c *Client) Consumer(pattern string, handler schema.ConsumerHandler) (*Consumer, error) {
-	return &Consumer{}
+	return NewConsumer(c.conn, pattern, handler)
 }
