@@ -1,5 +1,11 @@
 package schema
 
+type Stream string
+
+const (
+	BackofficeStream = "backoffice"
+)
+
 type Subject string
 
 const (

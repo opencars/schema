@@ -12,6 +12,7 @@ import (
 
 type Consumer struct {
 	pattern string
+	stream  string
 
 	conn *nats.Conn
 	js   nats.JetStreamContext
@@ -19,7 +20,7 @@ type Consumer struct {
 	handler schema.ConsumerHandler
 }
 
-func NewConsumer(conn *nats.Conn, pattern string, handler schema.ConsumerHandler) (*Consumer, error) {
+func NewConsumer(conn *nats.Conn, pattern, stream string, handler schema.ConsumerHandler) (*Consumer, error) {
 	js, err := conn.JetStream()
 	if err != nil {
 		return nil, err
@@ -34,7 +35,7 @@ func NewConsumer(conn *nats.Conn, pattern string, handler schema.ConsumerHandler
 }
 
 func (c *Consumer) Consume(ctx context.Context) error {
-	sub, err := c.js.SubscribeSync(c.pattern)
+	sub, err := c.js.SubscribeSync(c.pattern, nats.BindStream(c.stream))
 	if err != nil {
 		return err
 	}
