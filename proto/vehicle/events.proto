@@ -4,6 +4,8 @@ package vehicle;
 
 option go_package = "github.com/opencars/schema/vehicle";
 
+import "google/protobuf/timestamp.proto";
+
 message RegistrationSearched {
   string user_id = 1;
 
@@ -12,6 +14,7 @@ message RegistrationSearched {
   string vin = 4;
 
   uint32 result_amount = 5;
+  google.protobuf.Timestamp searched_at = 6;
 }
 
 message OperationSearched {
@@ -22,4 +25,5 @@ message OperationSearched {
   string vin = 4;
 
   uint32 result_amount = 5;
+  google.protobuf.Timestamp searched_at = 6;
 }
