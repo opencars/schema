@@ -75,7 +75,7 @@ func (c *Consumer) Consume(ctx context.Context) error {
 				Time:    metadata.Timestamp,
 			}
 
-			if err := c.handler.Handle(ctx, &event, &meta); err != nil {
+			if err := c.handler.Handle(context.Background(), &event, &meta); err != nil {
 				log.Printf("failed to handle event: %s", err)
 				continue
 			}
