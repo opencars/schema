@@ -31,6 +31,6 @@ func (c *Client) Producer() (*Producer, error) {
 	return NewProducer(c.conn)
 }
 
-func (c *Client) Consumer(pattern, stream string, handler schema.ConsumerHandler) (*Consumer, error) {
-	return NewConsumer(c.conn, pattern, stream, handler)
+func (c *Client) PullConsumer(subject string, stream string, consumer string, handler schema.ConsumerHandler) (*Consumer, error) {
+	return NewPullConsumer(c.conn, subject, stream, consumer, handler)
 }
