@@ -51,10 +51,10 @@ func (c *Consumer) Consume(ctx context.Context) error {
 	}
 
 	iter := func() error {
-		ctx, cancel := context.WithTimeout(ctx, 60*time.Second)
+		ctxWithTTL, cancel := context.WithTimeout(ctx, 60*time.Second)
 		defer cancel()
 
-		msgs, err := sub.Fetch(DefaultBatchSize, nats.Context(ctx))
+		msgs, err := sub.Fetch(DefaultBatchSize, nats.Context(ctxWithTTL))
 		if err != nil {
 			return fmt.Errorf("fetch: %w", err)
 		}
