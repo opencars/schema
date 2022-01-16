@@ -8,6 +8,8 @@ import "google/protobuf/timestamp.proto";
 
 message RegistrationSearched {
   string user_id = 1;
+  string token_id = 7;
+  string token_name = 8;
 
   string code = 2;
   string number = 3;
@@ -19,6 +21,8 @@ message RegistrationSearched {
 
 message OperationSearched {
   string user_id = 1;
+  string token_id = 7;
+  string token_name = 8;
 
   string code = 2;
   string number = 3;
