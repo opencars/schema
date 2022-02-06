@@ -31,3 +31,13 @@ message OperationSearched {
   uint32 result_amount = 5;
   google.protobuf.Timestamp searched_at = 6;
 }
+
+message VINDecoded {
+  string user_id = 1;
+  string token_id = 2;
+  string token_name = 3;
+
+  string vin = 4;
+
+  google.protobuf.Timestamp searched_at = 5;
+}
