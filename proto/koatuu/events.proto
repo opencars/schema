@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package koatuu;
+
+option go_package = "github.com/opencars/schema/koatuu";
+
+import "google/protobuf/timestamp.proto";
+
+message DecodingCalled {
+    string user_id    = 1;
+    string token_id   = 2;
+    string token_name = 3;
+
+    string code = 4;
+
+    google.protobuf.Timestamp called_at = 5;
+}
