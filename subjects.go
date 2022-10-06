@@ -3,7 +3,8 @@ package schema
 type Subject string
 
 const (
-	CustomerRegistrationActions = "customer.registration.actions"
-	OperationCustomerActions    = "customer.operation.actions"
-	VinDecodingCustomerActions  = "customer.vin-decoding.actions"
+	CustomerRegistrationActions Subject = "customer.registration.actions"
+	OperationCustomerActions    Subject = "customer.operation.actions"
+	VinDecodingCustomerActions  Subject = "customer.vin-decoding.actions"
+	KoatuuCustomerActions       Subject = "customer.koatuu.actions"
 )
