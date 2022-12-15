@@ -7,4 +7,6 @@ const (
 	OperationCustomerActions    Subject = "customer.operation.actions"
 	VinDecodingCustomerActions  Subject = "customer.vin-decoding.actions"
 	KoatuuCustomerActions       Subject = "customer.koatuu.actions"
+
+	StatisfyAuctionActions Subject = "statisfy.auction.actions"
 )
