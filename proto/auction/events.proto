@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package auction;
+
+option go_package = "github.com/opencars/schema/auction";
+
+import "proto/auction/auction.proto";
+
+message AuctionParsed {
+  Auction auction = 1;
+}

@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package auction;
+
+option go_package = "github.com/opencars/schema/auction";
+
+import "google/protobuf/timestamp.proto";
+import "proto/common/date.proto";
+
+message Auction {
+  string                    id                     = 1;
+  string                    brand                  = 2;
+  string                    model                  = 3;
+  int32                     year                   = 4;
+  string                    title                  = 5;
+  string                    url                    = 6;
+  string                    internal_id            = 7;
+  string                    auction                = 8;
+  string                    seller                 = 9;
+  string                    lot_number             = 10;
+  int32                     price                  = 11;
+  string                      status               = 12;
+  repeated string           image_urls             = 13;
+  common.Date               date_of_sale           = 14;
+  string                    vin                    = 15;
+  string                    condition              = 16;
+  string                    engine                 = 17;
+  int32                     mileage                = 18;
+  string                    documents              = 19;
+  string                    location               = 20;
+  string                    primary_damage         = 21;
+  string                    secondary_damage       = 22;
+  int32                     estimated_retail_value = 23;
+  int32                     estimated_repair_cost  = 24;
+  string                    gearbox_type           = 25;
+  string                    color                  = 26;
+  string                    wheel_drive_type       = 27;
+  string                    fuel                   = 28;
+  string                    keys                   = 29;
+  string                    notes                  = 30;
+  google.protobuf.Timestamp last_seen_at           = 31;
+  google.protobuf.Timestamp scraped_at             = 32;
+  google.protobuf.Timestamp updated_at             = 33;
+}
