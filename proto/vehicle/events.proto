@@ -41,3 +41,15 @@ message VINDecoded {
 
   google.protobuf.Timestamp searched_at = 5;
 }
+
+message VehicleSearched {
+  string user_id = 1;
+  string token_id = 2;
+  string token_name = 3;
+
+  string number = 4;
+  string vin = 5;
+
+  uint32 result_amount = 6;
+  google.protobuf.Timestamp searched_at = 7;
+}
